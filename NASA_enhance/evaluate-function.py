@@ -18,11 +18,13 @@ def evaluate_functions(n):
     return vector2
 
 @initialize_intpy(__file__)
-def main(n):
-    return evaluate_functions(n)
-
-if __name__ == "__main__":
+def main():
     n = int(sys.argv[1])
     print('Evaluate Function: ', n)
+    start = time.perf_counter()
     evaluate_functions(n)
-    print(' ')
+    print(time.perf_counter()-start)
+    print()
+
+if __name__ == "__main__":
+    main()
