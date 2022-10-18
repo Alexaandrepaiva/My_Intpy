@@ -12,6 +12,7 @@ def integrand(x): return np.exp(x)
 def compute_quadrature(n):
     a = -3.0
     b = 3.0
+
     x, w = np.polynomial.legendre.leggauss(n)
 
     t = 0.5*(x + 1)*(b - a) + a
@@ -20,20 +21,22 @@ def compute_quadrature(n):
     return gauss
 
 
+if len(sys.argv) < 1:
+    print('Usage:')
+    print('     python ' + sys.argv[0] + ' N')
+    print('Please specify the order of the quadrature.')
+    sys.exit()
+
+
 @initialize_intpy(__file__)
-def main(A):
-    if len(sys.argv) < 1:
-        print('Usage:')
-        print('     python ' + sys.argv[0] + ' N')
-        print('Please specify the order of the quadrature.')
-        sys.exit()
-
-
-if __name__ == "__main__":
+def main():
     order = int(sys.argv[1])
     print('Gauss-Legendre Quadrature of order: ', order)
-    compute_quadrature(order)
-    print(' ')
     start = time.perf_counter()
-    main(order)
+    compute_quadrature(order)
     print(time.perf_counter()-start)
+    print()
+
+
+if __name__ == '__main__':
+    main()
