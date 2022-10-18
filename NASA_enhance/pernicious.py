@@ -35,12 +35,12 @@ def find_pernicious_numbers(n):
     return i-1, counter
 
 @initialize_intpy(__file__)
-def main(n):
-    return find_pernicious_numbers(n)
+def main():
+    N = int(sys.argv[1])
+    start = time.perf_counter()
+    find_pernicious_numbers(N)
+    print(time.perf_counter()-start)
+    print()
 
 if __name__ == "__main__":
-    N = int(sys.argv[1])
-    find_pernicious_numbers(N)
-    start = time.perf_counter()
-    main(N)
-    print(time.perf_counter()-start)
+    main()
