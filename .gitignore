@@ -127,3 +127,9 @@ dmypy.json
 
 # Pyre type checker
 .pyre/
+
+# My _folders
+/Queiroz
+/JulesKouatchou
+/ClaytonChagas
+
