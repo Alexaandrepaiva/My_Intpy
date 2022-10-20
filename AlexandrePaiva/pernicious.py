@@ -4,7 +4,7 @@ import sys
 import scipy as sp
 from intpy.intpy import initialize_intpy, deterministic
 
-
+@deterministic
 def is_prime_number(n):
     if n in (2, 3):
         return True
@@ -20,8 +20,8 @@ def is_prime_number(n):
         range(5, 1 + int(n ** 0.5), 6)
     ))
 
-
-def get_number_of_ones(n): 
+@deterministic
+def get_number_of_ones(n):
     return bin(n).count("1")
 
 @deterministic
@@ -30,7 +30,7 @@ def find_pernicious_numbers(n):
     counter = 0
     while counter < n:
         if is_prime_number(get_number_of_ones(i)):
-            counter += 1 
+            counter += 1
         i += 1
     return i-1, counter
 
@@ -41,6 +41,7 @@ def main():
     find_pernicious_numbers(N)
     print(time.perf_counter()-start)
     print()
+
 
 if __name__ == "__main__":
     main()

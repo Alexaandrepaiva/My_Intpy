@@ -41,7 +41,7 @@ def find_munchausen_numbers(n):
 def main():
     n = int(sys.argv[1])
     start = time.perf_counter()
-    find_munchausen_numbers()
+    find_munchausen_numbers(n)
     print(time.perf_counter()-start)
 
 
